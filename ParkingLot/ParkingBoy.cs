@@ -20,7 +20,7 @@ namespace ParkingLot
 
         public Car FetchingCar(Ticket ticket)
         {
-            Car car = new Car();
+            Car car = new Car(ticket.CarName);
             return car;
         }
     }

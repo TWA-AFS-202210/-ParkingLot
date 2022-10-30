@@ -1,52 +1,19 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿// Include namespace system
+using System;
 
 namespace ParkingLot
 {
     public class Car
     {
-        public Car(string name, string ticket, int limit)
+        private string cardId;
+        public Car(string cardId, string v)
         {
-            Name = name;
-            Ticket = ticket;
-            Limit = limit;
+            this.cardId = cardId;
         }
 
-        public string Name { get; }
-        public string Ticket { get; private set; }
-        public List<string> Parking { get; private set; }
-        private int Limit { get; }
-        public string Park(string name)
+        public string GetCardId()
         {
-            for (int i = 0; i < Parking.Count; i++)
-            {
-                if (Parking[i] == "empty")
-                {
-                    Parking[i] = name;
-                    return i.ToString();
-                }
-            }
-
-            if (Parking.Count < Limit)
-            {
-                Parking.Add(name);
-                Ticket = Parking.Count().ToString();
-                return Ticket;
-            }
-
-            return "parking lot is ful";
-        }
-
-        public string GetCar(int ticket)
-        {
-            if (ticket >= 0 && ticket < Parking.Count())
-            {
-                var res = Parking[ticket];
-                Parking[ticket] = "empty";
-                return Parking[ticket];
-            }
-
-            return "wrong ticket";
+            return cardId;
         }
     }
 }

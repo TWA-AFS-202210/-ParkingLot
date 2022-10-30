@@ -26,6 +26,11 @@ namespace ParkingLot
             {
                 List<int?> ticket = parkinglot.Park(carNum);
 
+                if (ticket == null)
+                {
+                    return null;
+                }
+
                 for (int i = 0; i < ticket.Count; i++)
                 {
                     var ticketItem = ticket[i];

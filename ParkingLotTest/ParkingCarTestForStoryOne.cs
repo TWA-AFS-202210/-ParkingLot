@@ -32,7 +32,7 @@ namespace ParkingLotTest
             Assert.Equal(car, parkingboy.FetchCar(ticket));
         }
 
-        public static List<Car> CarsNum(int cars)
+        public List<Car> CarsNum(int cars)
         {
             List<Car> carsNum = new List<Car>();
             for (int num = 0; num < cars; num++)

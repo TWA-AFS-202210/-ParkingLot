@@ -20,22 +20,26 @@ namespace ParkingLot
             get { return parkinglots; }
         }
 
-        public int? Park(Car car)
+        public List<int?> Park(List<Car> carNum)
         {
             foreach (var parkinglot in Parkinglots)
             {
-                var ticket = parkinglot.Park(car);
+                List<int?> ticket = parkinglot.Park(carNum);
 
-                if (ticket.HasValue)
+                for (int i = 0; i < ticket.Count; i++)
                 {
-                    return ticket;
+                    var ticketItem = ticket[i];
+                    if (ticketItem.HasValue)
+                    {
+                        return ticket;
+                    }
                 }
             }
 
             return null;
         }
 
-        public Car FetchCar(int? ticket)
+        public List<Car> FetchCar(List<int?> ticket)
         {
             foreach (var parkinglot in parkinglots)
             {

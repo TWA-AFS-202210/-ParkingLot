@@ -16,22 +16,42 @@ namespace ParkingLot
             this.capacity = capacity;
         }
 
-        public Car FetchCar(int? ticket)
+        public List<Car> FetchCar(List<int?> ticket)
         {
-            var car = parkedCars.FirstOrDefault(c => c.GetHashCode() == ticket);
-            parkedCars.Remove(car);
-            return car;
+            List<Car> cars = new List<Car>();
+            for (int i = 0; i < ticket.Count; i++)
+            {
+                var ticketitem = ticket[i];
+                var car = parkedCars.FirstOrDefault(c => c.GetHashCode() == ticketitem);
+                cars.Add(car);
+                parkedCars.Remove(car);
+            }
+
+            if (cars.Count > 0)
+            {
+                return cars;
+            }
+
+            return null;
         }
 
-        public int? Park(Car car)
+        public List<int?> Park(List<Car> carNum)
         {
             if (IsParkingLotFull())
             {
                 return null;
             }
 
-            parkedCars.Add(car);
-            return car.GetHashCode();
+            var carCode = new List<int?>();
+
+            for (int i = 0; i < carNum.Count; i++)
+            {
+                var car = carNum[i];
+                parkedCars.Add(car);
+                carCode.Add(car.GetHashCode());
+            }
+
+            return carCode;
         }
 
         private bool IsParkingLotFull()

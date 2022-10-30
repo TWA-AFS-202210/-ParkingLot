@@ -8,6 +8,6 @@ namespace ParkingLot
 {
     public interface ICarFetch
     {
-        public Car FetchCar(int? ticket);
+        public List<Car> FetchCar(List<int?> ticket);
     }
 }

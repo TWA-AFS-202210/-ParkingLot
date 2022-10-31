@@ -7,7 +7,7 @@ namespace ParkingLotTest
     public class ParkingCarTestForStoryOne
     {
         [Fact]
-        public void Should_Parking_boy_park_a_car_into_parkinglot_with_1_position()
+        public void Should_Parking_boy_park_a_car_into_parkinglot()
         {
             //given
             var car = new List<Car>() { new Car() };
@@ -83,7 +83,7 @@ namespace ParkingLotTest
             //when
             var ticket = parkinglot.Park(car);
             //then
-            Assert. Equal(0, parkingboy.FetchCar(ticket).Count);
+            Assert.Equal(0, parkingboy.FetchCar(ticket).Count);
         }
 
         [Fact]

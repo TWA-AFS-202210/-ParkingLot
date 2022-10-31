@@ -16,7 +16,7 @@ namespace ParkingLot
             this.capacity = capacity;
         }
 
-       // public object AvaliableCount { get; internal set; }
+        public object AvaliableCount { get; internal set; }
 
         public List<Car> FetchCar(List<int?> ticket)
         {

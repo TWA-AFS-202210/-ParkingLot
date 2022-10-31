@@ -32,25 +32,13 @@ namespace ParkingLotTest
             Assert.Equal(car, parkingboy.FetchCar(ticket));
         }
 
-        public List<Car> CarsNum(int cars)
-        {
-            List<Car> carsNum = new List<Car>();
-            for (int num = 0; num < cars; num++)
-            {
-                var car = new Car();
-                carsNum.Add(car);
-            }
-
-            return carsNum;
-        }
-
         [Fact]
         public void Should_Parking_boy_park_multiple_cars_into_parking_lot()
         {
             //given
             var carsnum = 5;
-            List<Car> cars = CarsNum(carsnum);
-
+            var carsNum = new CarsNum();
+            List<Car> cars = carsNum.CarsNums(carsnum);
             var parkinglot = new Parkinglot(5);
             var parkingboy = new ParkingBoy(new List<Parkinglot>() { parkinglot });
             //when
@@ -83,7 +71,7 @@ namespace ParkingLotTest
             //when
             var ticket = parkinglot.Park(car);
             //then
-            Assert.Equal(0, parkingboy.FetchCar(ticket).Count);
+            Assert.Empty(parkingboy.FetchCar(ticket));
         }
 
         [Fact]
@@ -91,13 +79,14 @@ namespace ParkingLotTest
         {
             //given
             var carsnum = 10;
-            List<Car> cars = CarsNum(carsnum);
+            var carsNum = new CarsNum();
+            List<Car> cars = carsNum.CarsNums(carsnum);
             var car_11 = new List<Car>() { new Car() };
 
             var parkinglot = new Parkinglot(10);
             var parkingboy = new ParkingBoy(new List<Parkinglot>() { parkinglot });
             //when
-            var ticket = parkingboy.Park(cars);
+            parkingboy.Park(cars);
             //then
             Assert.Null(parkingboy.Park(car_11));
         }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ParkingLot
 {
-    public interface ICarFetch
+    public interface ICarMethod
     {
         public List<Car> FetchCar(List<int?> ticket);
     }

@@ -15,7 +15,8 @@ namespace ParkingLotTest
         {
             //given
             var carsnum = 10;
-            List<Car> cars = CarsNum(carsnum);
+            var carsNum = new CarsNum();
+            List<Car> cars = carsNum.CarsNums(carsnum);
             var car_11 = new List<Car>() { new Car() };
             var parkinglot1 = new Parkinglot(10);
             var parkinglot2 = new Parkinglot(10);
@@ -24,20 +25,8 @@ namespace ParkingLotTest
             //when
             var ticket = parkingboy.Park(car_11);
             //then
-            Assert.Equal(0, parkinglot1.FetchCar(ticket).Count);
+            Assert.Empty(parkinglot1.FetchCar(ticket));
             Assert.Equal(car_11, parkinglot2.FetchCar(ticket));
-        }
-
-        public List<Car> CarsNum(int cars)
-        {
-            List<Car> carsNum = new List<Car>();
-            for (int num = 0; num < cars; num++)
-            {
-                var car = new Car();
-                carsNum.Add(car);
-            }
-
-            return carsNum;
         }
     }
 }

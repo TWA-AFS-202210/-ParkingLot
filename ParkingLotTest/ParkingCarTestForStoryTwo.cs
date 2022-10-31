@@ -55,7 +55,8 @@ namespace ParkingLotTest
         {
             //given
             var carsnum = 10;
-            List<Car> cars = CarsNum(carsnum);
+            var carsNum = new CarsNum();
+            List<Car> cars = carsNum.CarsNums(carsnum);
             var car_11 = new List<Car>() { new Car() };
 
             var parkinglot = new Parkinglot(10);
@@ -70,18 +71,6 @@ namespace ParkingLotTest
 
             //then
             Assert.Equal(" Please provide your parking ticket.", message);
-        }
-
-        public List<Car> CarsNum(int cars)
-        {
-            List<Car> carsNum = new List<Car>();
-            for (int num = 0; num < cars; num++)
-            {
-                var car = new Car();
-                carsNum.Add(car);
-            }
-
-            return carsNum;
         }
     }
 }

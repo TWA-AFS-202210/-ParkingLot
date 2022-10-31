@@ -23,17 +23,5 @@ namespace ParkingLotTest
             //then
             Assert.Equal(car, parkinglot1.FetchCar(ticket));
         }
-
-        public List<Car> CarsNum(int cars)
-        {
-            List<Car> carsNum = new List<Car>();
-            for (int num = 0; num < cars; num++)
-            {
-                var car = new Car();
-                carsNum.Add(car);
-            }
-
-            return carsNum;
-        }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ParkingLot
 {
-    public class Parkinglot : ICarFetch
+    public class Parkinglot : ICarMethod
     {
         private readonly int capacity;
         private readonly List<Car> parkedCars = new List<Car>();

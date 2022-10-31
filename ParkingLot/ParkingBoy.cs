@@ -18,6 +18,7 @@ namespace ParkingLot
         public List<Parkinglot> Parkinglots
         {
             get { return parkinglots; }
+            set { parkinglots = value; }
         }
 
         public List<int?> Park(List<Car> carNum)

@@ -18,12 +18,14 @@ namespace ParkingLotTest
             List<Car> cars = CarsNum(carsnum);
             var car_11 = new List<Car>() { new Car() };
             var parkinglot1 = new Parkinglot(10);
-            var parkingLot2 = new Parkinglot(10);
-            var parkingboy = new ParkingBoy(new List<Parkinglot>() { parkinglot1 });
+            var parkinglot2 = new Parkinglot(10);
+            var parkingboy = new ParkingBoy(new List<Parkinglot>() { parkinglot1, parkinglot2 });
+            parkinglot1.Park(cars);
             //when
-            var ticket = parkingboy.Park(cars);
+            var ticket = parkingboy.Park(car_11);
             //then
-            Assert.Null(parkingboy.Park(car_11));
+            Assert.Null(parkinglot1.FetchCar(ticket));
+            Assert.Equal(car_11, parkinglot2.FetchCar(ticket));
         }
 
         public List<Car> CarsNum(int cars)

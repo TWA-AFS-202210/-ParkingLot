@@ -34,14 +34,14 @@ namespace ParkingLotTest
         [Fact]
         public void Should__return_message_when_Parking_boy_can_not_fetch_a_car_without_a_ticket()
         {
-            //given
+            //givens
             var car = new List<Car>();
             var parkinglot = new Parkinglot(5);
             var parkingboy = new ParkingBoy(new List<Parkinglot>() { parkinglot });
             //when
             var ticket = parkinglot.Park(car);
             var message = " ";
-            if (parkingboy.FetchCar(ticket) == null)
+            if (parkingboy.FetchCar(ticket).Count == 0)
             {
                 message = message + "Please provide your parking ticket.";
             }

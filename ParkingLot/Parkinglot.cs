@@ -16,7 +16,7 @@ namespace ParkingLot
             this.capacity = capacity;
         }
 
-        public object AvaliableCount { get; internal set; }
+       // public object AvaliableCount { get; internal set; }
 
         public List<Car> FetchCar(List<int?> ticket)
         {
@@ -25,16 +25,14 @@ namespace ParkingLot
             {
                 var ticketitem = ticket[i];
                 var car = parkedCars.FirstOrDefault(c => c.GetHashCode() == ticketitem);
-                cars.Add(car);
-                parkedCars.Remove(car);
+                if (car != null)
+                {
+                    cars.Add(car);
+                    parkedCars.Remove(car);
+                }
             }
 
-            if (cars.Count > 0)
-            {
-                return cars;
-            }
-
-            return null;
+            return cars;
         }
 
         public List<int?> Park(List<Car> carNum)

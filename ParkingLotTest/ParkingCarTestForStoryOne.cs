@@ -83,7 +83,7 @@ namespace ParkingLotTest
             //when
             var ticket = parkinglot.Park(car);
             //then
-            Assert.Null(parkingboy.FetchCar(ticket));
+            Assert. Equal(0, parkingboy.FetchCar(ticket).Count);
         }
 
         [Fact]

@@ -29,7 +29,7 @@ namespace ParkingLot
 
                 if (ticket == null)
                 {
-                    return null;
+                    continue;
                 }
 
                 for (int i = 0; i < ticket.Count; i++)

@@ -24,7 +24,7 @@ namespace ParkingLotTest
             //when
             var ticket = parkingboy.Park(car_11);
             //then
-            Assert.Null(parkinglot1.FetchCar(ticket));
+            Assert.Equal(0, parkinglot1.FetchCar(ticket).Count);
             Assert.Equal(car_11, parkinglot2.FetchCar(ticket));
         }
 
